@@ -1,4 +1,4 @@
-bedrag = float(input("Voer het aankoopbedrag in: "))
+bedrag = float(input("Voer het aankoopbedrag in: €"))
 
 if bedrag > 100: 
     korting_percentage = 10
