@@ -15,3 +15,7 @@ for i in range(0, aantal_studenten):
 gemiddelde = som/aantal_studenten
     
 print(f"Het gemiddelde is {gemiddelde}.")
+
+for i in range(aantal_studenten): 
+    if cijfer[i] > gemiddelde:
+        print(f"De leerling {naam[i]} heeft boven het gemiddlede.")
