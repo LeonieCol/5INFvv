@@ -1,4 +1,4 @@
-#Start gegevens importeren:
+#Startgegevens klaarzetten
 aandelen = {
     "TechNova":   {"aantal": 10, "koersen": [52.10, 53.40, 51.80, 54.90, 56.20, 55.70]},
     "GreenPower": {"aantal": 25, "koersen": [18.30, 18.10, 17.60, 17.90, 17.20, 16.80]},
@@ -7,27 +7,26 @@ aandelen = {
 cash = 500.0
 transactiekost = 2.50
 
-#1. Per aandeel de gemiddelde, hoogste en laagste koers tonen: 
+# 1. Per aandeel de gemiddelde, hoogste en laagste koers tonen: 
 
-#Eerst moeten we de koersen appart kunnen bijkijken om deze dingen te berekenen. Om dit te doen maken we geen apparte variabele voor ieder aandeel, maar gaan we automatisch een for-lus gebruiken die de dictionary doorloopt. 
-for naam in aandelen: #RONDE 1 ALS VOORBEELD:
-    koersen = aandelen[naam]["koersen"]  #Naam = 'TechNova', de variabele wordt dus automatisch [52.10, 53.40, 51.80, 54.90, 56.20, 55.70].
-    print(naam, koersen)
+#We doorlopen de dictionary met een for-lus, zodat we geen aparte variabelen per aandeel hoeven te maken. 
+for naam in aandelen: #Voorbeeld ronde 1: naam = "TechNova"
+    koersen = aandelen[naam]["koersen"]  #Haalt de lijst[52.10, 53.40, 51.80, 54.90, 56.20, 55.70].
 
-    #Startwaarden klaarzetten voor dit aandeel
+    #Startwaarden klaarzetten voor dit aandeel: we starten bij de eerste koers (index 0) om mee te kunnen vergelijken
     totaal = 0
-    hoogste = koersen[0]
+    hoogste = koersen[0] 
     laagste = koersen[0]
 
-    #Elk getal in de lijst 'koersen' bekijken
+    #Elk getal in de lijst 'koersen' één voor één bekijken
     for koers in koersen: 
-        totaal = totaal + koers      #Tel op voor het gemiddelde
-        if koers > hoogste:          #Nieuw record?
+        totaal = totaal + koers      #Alle koersen optellen voor het gemiddelde
+        if koers > hoogste:          #Is deze koers hoger dan het huidige record? 
             hoogste = koers
-        if koers < laagste:          #Nieuw laagsterecord?
+        if koers < laagste:          #Is deze koers lager dan het huidige laagsterecord?
             laagste = koers
 
-    gemiddelde = totaal /len(koersen)
+    gemiddelde = totaal / len(koersen)
 
-    #Resultaat tonen (met 2 decimalen, zoals gevraagd in de tabel!)
+    #Resultaat tonen met 2 decimalen (verplichte bouwsteen: f-string)
     print(f"{naam}: gemiddelde = {gemiddelde:.2f}, hoogste = {hoogste:.2f}, laagste = {laagste:.2f}")
