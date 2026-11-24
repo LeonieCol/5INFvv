@@ -30,3 +30,18 @@ for naam in aandelen: #Voorbeeld ronde 1: naam = "TechNova"
 
     #Resultaat tonen met 2 decimalen (verplichte bouwsteen: f-string)
     print(f"{naam}: gemiddelde = {gemiddelde:.2f}, hoogste = {hoogste:.2f}, laagste = {laagste:.2f}")
+
+# 2. Het rendement in % tussen de eerste en de laatste dag berekenen, en het beste en slechtste aandeel tonen. 
+
+#We nemen weer de dictionary door:
+for naam in aandelen: 
+    koersen = aandelen[naam]["koersen"]
+
+    #Startwaarde klaarzetten: 
+    eerste_dag = koersen[0]
+    laatste_dag = koersen[-1]
+
+    #Rendement formule gebruiken voor elk getal in de lijst koersen
+    rendement = ((laatste_dag - eerste_dag)/eerste_dag)*100
+
+    print(f"{naam}: rendement = {rendement:.2f}%")
