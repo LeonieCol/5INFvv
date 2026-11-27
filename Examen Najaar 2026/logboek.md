@@ -127,3 +127,10 @@ De AI paste zijn aanpak aan: geen kant-en-klare code meer, maar eerst een uitleg
 
 **Antwoord van de AI:**  
 De AI legde uit hoe een functie werkt aan de hand van een fabrieksmachine: parameters zijn de invoer (`aandelen`, `cash`, `transactiekost`), binnenin gebeurt de berekening en met `return cash` geeft de functie het aangepaste geldbedrag netjes terug (zoals vereist door de examenregels rond globale variabelen). De AI gaf enkel het lege geraamte van de functie `handel_aandelen` met een docstring, plus hints om `.lower()` te gebruiken en de returnwaarde op te vangen via `cash = handel_aandelen(...)`.
+
+### Prompt 15 (27 november 2026)
+**Mijn prompt:**  
+*"Oké laat maar mijn hoofd is aan het crashen dit is wat ik heb: [opzetje binnen `def handel_aandelen` met losse `input("Welk aandeel?")`]. Dit werkt niet maar ik vind het heel moeilijk met die functie, dat is iets waar ik het niet gewoon van ben om mee te werken."*
+
+**Antwoord van de AI:**  
+De AI raadde aan om de logica voor kopen en verkopen eerst gewoon los uit te werken zonder `def` en `return`, en pas helemaal op het einde een functie rond de werkende code te zetten. Daarnaast wees de AI op twee kleine aandachtspunten in mijn eerste regel: het resultaat van `input()` moet worden opgeslagen in een variabele (zoals `naam = input(...)`), en de inspringing (tabs) moet op één lijn staan. De AI gaf vervolgens een kort stappenplan om eerst enkel het kopen van aandelen uit te werken.

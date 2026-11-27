@@ -93,3 +93,24 @@ for naam in aandelen:
     # Formule: (deel / geheel) * 100
     percentage = (waarde_aandeel / totale_waarde) * 100
     print(f"- {naam}: {percentage:.2f}% van de totale waarde")
+
+# 4. Aandel kopen of verkopen aan de laatste koers, met transactiekost;
+# je kan niet meer kopen dan je chash toelaat en niet meer verkopen dan je bezit. 
+
+# Deze functie regelt het kopen en het verkopen van aandelen en geeft het nieuwe cashsaldo terug.
+def verhandel_aandelen(aandelen, cash, transactiekost):
+    """Laat de gebruiker aandelen kopen of verkopen aan de laatste slotkoers en geeft het bijgewerkte cashsaldo terug."""
+
+    # We vragen of de gebruiker wil kopen of verkpoen
+    actie = input("Wil je aandelen kopen of verkopen? (typ hier 'kopen' of 'verkopen'): ").lower()
+
+    # Eerst controlern of de invoer wel geldig
+    if actie != 'kopen' and actie != 'verkopen':
+        print("Ongeldige keuze. Kies 'kopen' of 'verkopen': ")
+        return cash # We stoppen de functie en geven het ongewijzigde cashsaldo terug
+
+    # We vragen om welk aandeel het gaat en controleren of het bestaat in de dictionary
+    gekozen_aandeel = input("Welk aandeel wil je verhandelen? (TechNova, GreenPower, FoodCorp): ")
+    if gekozen_aandeel not in aandelen: 
+        print("Four: dit aandeel bestaat niet in je portefeuille.")
+        return cash
