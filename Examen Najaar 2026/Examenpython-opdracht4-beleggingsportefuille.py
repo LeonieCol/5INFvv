@@ -66,4 +66,30 @@ for naam in aandelen:
 # Pas NADAT de lus alle aandelen heeft vergeleken (helemaal links uitgelijnd!), tonen we de winnaar en verliezer: 
 print(f"Beste aandeel: {beste_aandeel}{beste_rendement:.2f}%")
 print(f"Slechtste aandeel: {slechtste_aandeel}{slechtste_rendement:.2f}%")
+
+# 3. De totale waarde van de portefeuille en het aandeel in % van elk aandeel tonen.
+
+# Deel 1: Totale waarde berekenen (we starten meteen met het cashgeld op onze rekening)
+totale_waarde = cash
+
+# We lopen één keer door alle aandelen in de dictionary
+for naam in aandelen:
+    stuks = aandelen[naam]["aantal"]             # Aantal stuks van dit aandeel (is een gewoon getal, dus geen lus nodig!)
+    laatste_koers = aandelen[naam]["koersen"][-1] # De meest recente koers van dit aandeel
     
+    # Waarde van dit specifieke aandeel berekenen en optellen bij het totaal
+    waarde_aandeel = stuks * laatste_koers
+    totale_waarde = totale_waarde + waarde_aandeel
+
+# Pas ná de lus is alles opgeteld en printen we de totale waarde (met 2 decimalen)
+print(f"Totale waarde van de portefeuille: €{totale_waarde:.2f}")
+
+# Deel 2: Nu we het totaal kennen, berekenen we voor elk aandeel hoeveel % dit is van de totale portefeuille
+for naam in aandelen:
+    stuks = aandelen[naam]["aantal"]
+    laatste_koers = aandelen[naam]["koersen"][-1]
+    waarde_aandeel = stuks * laatste_koers
+
+    # Formule: (deel / geheel) * 100
+    percentage = (waarde_aandeel / totale_waarde) * 100
+    print(f"- {naam}: {percentage:.2f}% van de totale waarde")
